@@ -1,0 +1,155 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@63437cfa";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@f674437";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@42b07b0a";
+	node_size = (130.0 55.0);
+}
+
+node parrSurvives
+{
+	states = ("true" "false" );
+	position = (618 -143);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Parr Survives";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node accusesMattOfStealingTheBowl
+{
+	states = ("true" "false" );
+	position = (712 -350);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Accuses Matt Of Stealing The Bowl";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node theyEscapeTogether
+{
+	states = ("true" "false" );
+	position = (351 -340);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "They Escape Together";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node parrThrowsTheBowl
+{
+	states = ("true" "false" );
+	position = (317 -25);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "null";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "Parr Throws The Bowl";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node goesHomeAlone
+{
+	states = ("true" "false" );
+	position = (27 -320);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Goes Home Alone";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node mattSurvives
+{
+	states = ("true" "false" );
+	position = (152 -145);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "null";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Matt Survives";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node mayLingSurvives
+{
+	states = ("true" "false" );
+	position = (372 -143);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "May-Ling Survives";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node shutsHisMouth
+{
+	states = ("true" "false" );
+	position = (535 -268);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Shuts His Mouth";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node stealsTheBowlAndRuns
+{
+	states = ("true" "false" );
+	position = (175 -253);
+	diagnosistype = "AUXILIARY";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Steals The Bowl And Runs";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( parrSurvives | parrThrowsTheBowl )
+{
+	data = ((	0.4	0.6	)
+		(	0.4	0.6	));
+}
+potential ( accusesMattOfStealingTheBowl | parrSurvives )
+{
+	data = ((	0.9	0.1	)
+		(	0.0	1.0	));
+}
+potential ( theyEscapeTogether | mattSurvives mayLingSurvives )
+{
+	data = (((	0.7	0.3	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)));
+}
+potential ( parrThrowsTheBowl | )
+{
+	data = (	0.6	0.4	);
+}
+potential ( goesHomeAlone | mattSurvives )
+{
+	data = ((	0.4	0.6	)
+		(	0.0	1.0	));
+}
+potential ( mattSurvives | parrThrowsTheBowl )
+{
+	data = ((	0.2	0.8	)
+		(	0.2	0.8	));
+}
+potential ( mayLingSurvives | parrThrowsTheBowl )
+{
+	data = ((	0.1	0.9	)
+		(	0.1	0.9	));
+}
+potential ( shutsHisMouth | parrSurvives )
+{
+	data = ((	0.3	0.7	)
+		(	0.0	1.0	));
+}
+potential ( stealsTheBowlAndRuns | mattSurvives )
+{
+	data = ((	0.3	0.7	)
+		(	0.0	1.0	));
+}
